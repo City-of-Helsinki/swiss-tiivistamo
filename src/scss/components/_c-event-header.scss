@@ -1,0 +1,17 @@
+.c-event-header {
+    &__title {
+    }
+
+    &__datetime,
+    &__location,
+    &__price {
+        @include font-size(h4);
+    }
+    &__location_extra {
+        @include font-size(md);
+    }
+
+    &__datetime {
+        @include font(bold);
+    }
+}

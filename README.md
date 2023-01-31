@@ -2,6 +2,10 @@
 
 Base theme & modular building blocks for WordPress created by Evermade.
 
+## API integrations
+
+Supposedly the Oodi events can be found from https://api.hel.fi/linkedevents/v1/event/?format=json&location=tprek:51342 (Oodi keskustakirjasto) or from https://api.hel.fi/linkedevents/v1/event/?format=json&location=tprek:55955 (Oodi centeral library) as found from the Service Map provided by City of Helsinki.
+
 ## Requirements
 
 * [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro/) plugin
