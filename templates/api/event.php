@@ -1,6 +1,6 @@
 <?php // \Evermade\Swiss\debug($event); ?>
 
-<section class="b-subpage-hero <?php if ($isEvent) :?>b-subpage-hero--event<?php endif;?>">
+<section class="b-subpage-hero <?php if ( ! empty($isEvent) ) :?>b-subpage-hero--event<?php endif;?>">
     <div class="b-subpage-hero__container">
         <div class="b-subpage-hero__text">
             <div class="b-subpage-hero__text--inner b-subpage-hero__text--inner-blog">
@@ -49,16 +49,20 @@
                 </div>
             </div>
 
-            <?php 
-                $iconEarthFile = file_get_contents(get_template_directory().'/assets/img/oodi-icons/maapallo.svg'); 
-                $iconHeartFile = file_get_contents(get_template_directory().'/assets/img/oodi-icons/sydan.svg'); 
-                $iconTicketFile = file_get_contents(get_template_directory().'/assets/img/oodi-icons/lippu.svg'); 
+            <?php
+                $iconEarthFile = file_get_contents(get_template_directory().'/assets/img/oodi-icons/maapallo.svg');
+                $iconHeartFile = file_get_contents(get_template_directory().'/assets/img/oodi-icons/sydan.svg');
+                $iconTicketFile = file_get_contents(get_template_directory().'/assets/img/oodi-icons/lippu.svg');
+
+                if (! is_array($external_links)) {
+                    $external_links = array();
+                }
 
                 $facebookLink = array_search('extlink_facebook', array_column($external_links, 'name')) !== FALSE ? $external_links[array_search('extlink_facebook', array_column($external_links, 'name'))]->link : '' ;
                 $instagramLink = array_search('extlink_instagram', array_column($external_links, 'name')) !== FALSE  ? $external_links[array_search('extlink_instagram', array_column($external_links, 'name'))]->link : '' ;
                 $twitterLink = array_search('extlink_twitter', array_column($external_links, 'name')) !== FALSE  ? $external_links[array_search('extlink_twitter', array_column($external_links, 'name'))]->link : '' ;
 
-                
+
             ?>
 
             <div class="l-event__sidebar">
@@ -77,12 +81,12 @@
                         <?php echo \Evermade\Swiss\sprint('<h3>%s</h3>', __('Extra information', 'swiss')); ?>
                         <ul>
                         <div class="c-share c-share--vertical">
-                            <ul class="c-share__list">                               
-                                    
+                            <ul class="c-share__list">
+
                                 <?php echo \Evermade\Swiss\sprint('<li><a class="facebook" href="%s" target="_blank"><i class="fab fa-facebook-f"></i>Facebook</a></li>', array($facebookLink)); ?>
                                 <?php echo \Evermade\Swiss\sprint('<li><a class="instagram" href="%s" target="_blank"><i class="fab fa-instagram"></i>Instagram</a></li>', array($instagramLink)); ?>
                                 <?php echo \Evermade\Swiss\sprint('<li><a class="twitter" href="%s" target="_blank"><i class="fab fa-twitter"></i>Twitter</a></li>', array($twitterLink)); ?>
-                                       
+
                             </ul>
                         </div>
                             <?php echo \Evermade\Swiss\sprint('<li><a class="c-event-sidebar__extra-link" href="%s" target="_blank">%s %s</a></li>', array($info_url, $iconEarthFile, __('Event website', 'swiss'))); ?>
