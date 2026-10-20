@@ -14,10 +14,12 @@ function publicScriptsAndStyles()
     // scripts
     wp_enqueue_script('modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js');
 
+    wp_enqueue_script('youtube-iframe-api', 'https://www.youtube.com/iframe_api');
+
     wp_enqueue_script(
         'swiss-js',
         get_template_directory_uri().'/assets/dist/js/bundle.js',
-        array(),
+        array( 'jquery', 'modernizr', 'youtube-iframe-api' ),
         $version,
         true
     );
