@@ -19,19 +19,7 @@ em.youtubeAPIPlayer = {};
 em.youtubeAPIPlayer.loopRefs = [];
 
 //call any functions to be trigger on dom ready
-em.youtubeAPIPlayer.init = function () {
-
-    // check that the youtube iframe api isn't already loaded
-    if ($("script[src$='www.youtube.com/iframe_api']").length === 0) {
-
-        var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-    }
-
-};
+em.youtubeAPIPlayer.init = function () {};
 
 /**
  * Function that decides if autoplay should work for the user's device
